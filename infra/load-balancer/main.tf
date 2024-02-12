@@ -13,6 +13,8 @@ variable "lb_listner_default_action" {}
 # variable "lb_https_listner_protocol" {}
 # variable "dev_proj_1_acm_arn" {}
 variable "lb_target_group_attachment_port" {}
+variable "ec2_sg_name_for_python_api" {
+}
 
 output "aws_lb_dns_name" {
   value = aws_lb.dev_proj_1_lb.dns_name
@@ -27,7 +29,7 @@ resource "aws_lb" "dev_proj_1_lb" {
   name               = var.lb_name
   internal           = var.is_external
   load_balancer_type = var.lb_type
-  security_groups    = [var.sg_enable_ssh_https]
+  security_groups    = [var.sg_enable_ssh_https,var.ec2_sg_name_for_python_api]
   subnets            = var.subnet_ids # Replace with your subnet IDs
 
   enable_deletion_protection = false
