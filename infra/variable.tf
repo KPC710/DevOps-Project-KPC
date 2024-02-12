@@ -49,7 +49,7 @@ variable "ec2_ami_id" {
 }
 
 variable "ec2_user_data_install_apache" {
-  type = string
+  type        = string
   description = "Script for installing the Apache2"
 }
 
