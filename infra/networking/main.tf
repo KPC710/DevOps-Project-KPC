@@ -50,7 +50,7 @@ resource "aws_route_table_association" "dev_proj_1_public_rt_subnet_association"
 }
 
 resource "aws_route_table" "dev_proj_1_private_subnets" {
-    vpc_id = aws_vpc.dev_proj_1_vpc_us_east_1
+    vpc_id = aws_vpc.dev_proj_1_vpc_us_east_1.id
    #depends_on = [aws_nat_gateway.nat_gateway]
    tags = {
       Name = "dev-proj-1-private-rt"
